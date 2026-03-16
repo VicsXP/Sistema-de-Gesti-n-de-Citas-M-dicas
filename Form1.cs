@@ -185,7 +185,25 @@ namespace Sistema_de_Gestión_de_Citas_Médicas
                 }
             }
         }
+        void CargarReporteCitas()
+        {
+            var datos =
+                from c in citas
+                join d in doctores
+                on c.DoctorID equals d.ID
+                join p in pacientes
+                on c.PacienteDPI equals p.DPI
+                select new
+                {
+                    Doctor = d.Nombre,
+                    Especialidad = d.Especialidad,
+                    Paciente = p.Nombre,
+                    Fecha = c.Fecha.ToShortDateString(),
+                    Hora = c.Hora
+                };
 
+            dataGridViewReporte.DataSource = datos.ToList();
+        }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -195,5 +213,11 @@ namespace Sistema_de_Gestión_de_Citas_Médicas
         {
             GuardarCita();
         }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            CargarReporteCitas();
+        }
+
     }
 }
