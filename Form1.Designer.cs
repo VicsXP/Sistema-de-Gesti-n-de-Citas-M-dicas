@@ -40,6 +40,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewReporte = new System.Windows.Forms.DataGridView();
             this.btnReporte = new System.Windows.Forms.Button();
+            this.Fecha = new System.Windows.Forms.Button();
+            this.Doctor = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReporte)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,12 +153,44 @@
             this.btnReporte.UseVisualStyleBackColor = true;
             this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
             // 
+            // Fecha
+            // 
+            this.Fecha.Location = new System.Drawing.Point(224, 359);
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Size = new System.Drawing.Size(75, 25);
+            this.Fecha.TabIndex = 13;
+            this.Fecha.Text = "Fecha";
+            this.Fecha.UseVisualStyleBackColor = true;
+            this.Fecha.Click += new System.EventHandler(this.Fecha_Click);
+            // 
+            // Doctor
+            // 
+            this.Doctor.Location = new System.Drawing.Point(224, 401);
+            this.Doctor.Name = "Doctor";
+            this.Doctor.Size = new System.Drawing.Size(75, 25);
+            this.Doctor.TabIndex = 14;
+            this.Doctor.Text = "Doctor";
+            this.Doctor.UseVisualStyleBackColor = true;
+            this.Doctor.Click += new System.EventHandler(this.Doctor_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(231, 331);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 16);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Ordenar";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Doctor);
+            this.Controls.Add(this.Fecha);
             this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.dataGridViewReporte);
             this.Controls.Add(this.label5);
@@ -190,6 +225,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dataGridViewReporte;
         private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Button Fecha;
+        private System.Windows.Forms.Button Doctor;
+        private System.Windows.Forms.Label label6;
     }
 }
 

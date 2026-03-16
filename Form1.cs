@@ -204,7 +204,46 @@ namespace Sistema_de_Gestión_de_Citas_Médicas
 
             dataGridViewReporte.DataSource = datos.ToList();
         }
+        void OrdenarPorFecha()
+        {
+            var datos =
+                from c in citas
+                join d in doctores
+                on c.DoctorID equals d.ID
+                join p in pacientes
+                on c.PacienteDPI equals p.DPI
+                orderby c.Fecha, c.Hora
+                select new
+                {
+                    Doctor = d.Nombre,
+                    Especialidad = d.Especialidad,
+                    Paciente = p.Nombre,
+                    Fecha = c.Fecha.ToShortDateString(),
+                    Hora = c.Hora
+                };
 
+            dataGridViewReporte.DataSource = datos.ToList();
+        }
+        void OrdenarPorDoctor()
+        {
+            var datos =
+                from c in citas
+                join d in doctores
+                on c.DoctorID equals d.ID
+                join p in pacientes
+                on c.PacienteDPI equals p.DPI
+                orderby d.Nombre
+                select new
+                {
+                    Doctor = d.Nombre,
+                    Especialidad = d.Especialidad,
+                    Paciente = p.Nombre,
+                    Fecha = c.Fecha.ToShortDateString(),
+                    Hora = c.Hora
+                };
+
+            dataGridViewReporte.DataSource = datos.ToList();
+        }
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -219,5 +258,14 @@ namespace Sistema_de_Gestión_de_Citas_Médicas
             CargarReporteCitas();
         }
 
+        private void Fecha_Click(object sender, EventArgs e)
+        {
+            OrdenarPorFecha();
+        }
+
+        private void Doctor_Click(object sender, EventArgs e)
+        {
+            OrdenarPorDoctor();
+        }
     }
 }
